@@ -201,9 +201,7 @@ function init() {
       // set position and scale
       mesh = gltf.scene;
       //mesh.position.set(10, 10, 30);
-      mesh.position.x = Math.floor(Math.random() * 180 - 10) * 20;
-      mesh.position.y = Math.floor(Math.random() * 80) * 5 + 10;
-      mesh.position.z = Math.floor(Math.random() * 180 - 10) * 20;
+      mesh.position.set(10,15,0);
       mesh.rotation.set(0, 0, 0);
       mesh.scale.set(10,10, 10); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
@@ -214,7 +212,7 @@ function init() {
       console.error(error);
     }
   );
-}
+
 //for ( let i = 0; i < 2000; i ++ ) {
   var newMaterial2 = new THREE.MeshStandardMaterial({
       color: 0x97C0FC
@@ -231,9 +229,7 @@ function init() {
       });
       // set position and scale
       mesh2 = gltf.scene;
-      mesh2.position.x = Math.floor(Math.random() * 180 - 10) * 20;
-      mesh2.position.y = Math.floor(Math.random() * 80) * 5 + 10;
-      mesh2.position.z = Math.floor(Math.random() * 180 - 10) * 20;
+      mesh2.position.set(30,50,0);
       mesh2.rotation.set(0.349066, 0, 0);
       mesh2.scale.set(10,10, 10); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
@@ -244,7 +240,7 @@ function init() {
       console.error(error);
     }
   );
-}
+
   // Define Rendered and html document placement
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
