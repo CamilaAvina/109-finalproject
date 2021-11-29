@@ -1,0 +1,28 @@
+h1{
+  font-family: 'Rubik Beastly', cursive;
+  font-size: 60px;
+  color:#D4E6F1;
+  font-weight: lighter;
+   text-shadow: 3px 3px black;
+
+}
+body{
+  background-color: #61856B ;
+  text-align: center;
+
+}
+p{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 30px;
+}
+a{
+  font-family: 'Rubik Beastly', cursive;
+  font-size: 60px;
+  color:#D4E6F1;
+  font-weight: lighter;
+   text-shadow: 3px 3px black;
+}
+h2{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 30px;
+}
