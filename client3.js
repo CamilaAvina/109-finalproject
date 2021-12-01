@@ -189,7 +189,7 @@ function init() {
       color: 0xFA962E
     });
   const loader = new GLTFLoader().load(
-    "assets/teddybear.glb", // comment this line out and un comment the line below to swithc models
+    "assets/cag.glb", // comment this line out and un comment the line below to swithc models
     //"./assets/gourd_web.glb", //<-- photogrammetery model
     function(gltf) {
       // Scan loaded model for mesh and apply defined material if mesh is present
@@ -201,9 +201,9 @@ function init() {
       // set position and scale
       mesh = gltf.scene;
       //mesh.position.set(10, 10, 30);
-      mesh.position.set(10,15,0);
-      mesh.rotation.set(0, 0, 0);
-      mesh.scale.set(10,10, 10); // <-- change this to (1, 1, 1) for photogrammetery model
+      mesh.position.set(10,10,0);
+      mesh.rotation.set(90, 0, 0);
+      mesh.scale.set(20,20, 20); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
       scene.add(mesh);
     },
@@ -218,7 +218,7 @@ function init() {
       color: 0x97C0FC
     });
   const loader2 = new GLTFLoader().load(
-    "assets/stuffdog.glb", // comment this line out and un comment the line below to swithc models
+    "assets/wild.glb", // comment this line out and un comment the line below to swithc models
     //"./assets/gourd_web.glb", //<-- photogrammetery model
     function(gltf) {
       // Scan loaded model for mesh and apply defined material if mesh is present
@@ -229,7 +229,7 @@ function init() {
       });
       // set position and scale
       mesh2 = gltf.scene;
-      mesh2.position.set(30,50,0);
+      mesh2.position.set(50,10,0);
       mesh2.rotation.set(0.349066, 0, 0);
       mesh2.scale.set(10,10, 10); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
