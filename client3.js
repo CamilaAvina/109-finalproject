@@ -169,7 +169,7 @@ function init() {
   const colorsFloor = [];
 
   for (let i = 0, l = position.count; i < l; i++) {
-    color.setHSL(Math.random() * 1.3 + 1.5, 0.75, Math.random() * 0.25 + 0.75);
+    color.setHSL(Math.random() * 2.3 + 5.5, 0.75, Math.random() * 0.25 + 0.75);
     colorsFloor.push(color.r, color.g, color.b);
   }
 
@@ -186,8 +186,11 @@ function init() {
   scene.add(floor);
 //  for ( let i = 0; i < 2000; i ++ ) {
   var newMaterial = new THREE.MeshStandardMaterial({
-      color: 0xFA962E
+      color: 0xFA9626
     });
+
+    //renderer.outputEncoding = THREE.sRGBEncoding;
+
   const loader = new GLTFLoader().load(
     "assets/cag.glb", // comment this line out and un comment the line below to swithc models
     //"./assets/gourd_web.glb", //<-- photogrammetery model
@@ -195,14 +198,16 @@ function init() {
       // Scan loaded model for mesh and apply defined material if mesh is present
       gltf.scene.traverse(function(child) {
         if (child.isMesh) {
-          child.material = newMaterial;
+        //  child.material = newMaterial;
+          renderer.outputEncoding = THREE.sRGBEncoding;
+
         }
       });
       // set position and scale
       mesh = gltf.scene;
       //mesh.position.set(10, 10, 30);
       mesh.position.set(10,10,0);
-      mesh.rotation.set(90, 0, 0);
+      mesh.rotation.set(0, 90, 90);
       mesh.scale.set(20,20, 20); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
       scene.add(mesh);
@@ -224,13 +229,15 @@ function init() {
       // Scan loaded model for mesh and apply defined material if mesh is present
       gltf.scene.traverse(function(child) {
         if (child.isMesh) {
-          child.material = newMaterial2;
+        //  child.material = newMaterial2;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+
         }
       });
       // set position and scale
       mesh2 = gltf.scene;
       mesh2.position.set(50,10,0);
-      mesh2.rotation.set(0.349066, 0, 0);
+      mesh2.rotation.set(0, 90, 90);
       mesh2.scale.set(10,10, 10); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
       scene.add(mesh2);
