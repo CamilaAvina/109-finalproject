@@ -29,7 +29,8 @@ const vertex = new THREE.Vector3();
 const color = new THREE.Color();
 var mesh;
 var mesh2;
-
+var mesh3;
+var mesh4;
 
 // Initialization and animation function calls
 init();
@@ -48,8 +49,10 @@ function init() {
 
   // Define basic scene parameters
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xFFD9F9);
-  scene.fog = new THREE.Fog(0xFEF9E7, 0, 650);
+//  scene.background = new THREE.Color(0x97C0FC);
+  var bgTexture = new THREE.TextureLoader().load("assets/grafitti.jpg");
+  scene.background = bgTexture;
+  scene.fog = new THREE.Fog(0xFEF9E7, 0, 750);
 
   // Define scene lighting
   const light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
@@ -169,7 +172,7 @@ function init() {
   const colorsFloor = [];
 
   for (let i = 0, l = position.count; i < l; i++) {
-    color.setHSL(Math.random() * 2.3 + 5.5, 0.75, Math.random() * 0.25 + 0.75);
+    color.setHSL(Math.random() * 0.1 + 0, 0.05, Math.random() * 0.05 + 0.05);
     colorsFloor.push(color.r, color.g, color.b);
   }
 
@@ -206,11 +209,14 @@ function init() {
       // set position and scale
       mesh = gltf.scene;
       //mesh.position.set(10, 10, 30);
-      mesh.position.set(10,10,0);
+      mesh.position.set(10,20,0);
       mesh.rotation.set(0, 90, 90);
+
       mesh.scale.set(20,20, 20); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
       scene.add(mesh);
+
+
     },
     undefined,
     function(error) {
@@ -236,9 +242,9 @@ function init() {
       });
       // set position and scale
       mesh2 = gltf.scene;
-      mesh2.position.set(50,10,0);
+      mesh2.position.set(250,20,0);
       mesh2.rotation.set(0, 90, 90);
-      mesh2.scale.set(10,10, 10); // <-- change this to (1, 1, 1) for photogrammetery model
+      mesh2.scale.set(20,20, 20); // <-- change this to (1, 1, 1) for photogrammetery model
       // Add model to scene
       scene.add(mesh2);
     },
@@ -247,6 +253,64 @@ function init() {
       console.error(error);
     }
   );
+  var newMaterial2 = new THREE.MeshStandardMaterial({
+      color: 0x97C0FC
+    });
+  const loader3 = new GLTFLoader().load(
+    "assets/crazy.glb", // comment this line out and un comment the line below to swithc models
+    //"./assets/gourd_web.glb", //<-- photogrammetery model
+    function(gltf) {
+      // Scan loaded model for mesh and apply defined material if mesh is present
+      gltf.scene.traverse(function(child) {
+        if (child.isMesh) {
+        //  child.material = newMaterial2;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+
+        }
+      });
+      // set position and scale
+      mesh3 = gltf.scene;
+      mesh3.position.set(50,20,10);
+      mesh3.rotation.set(0, 0, 0);
+      mesh3.scale.set(20,20, 20); // <-- change this to (1, 1, 1) for photogrammetery model
+      // Add model to scene
+      scene.add(mesh3);
+    },
+    undefined,
+    function(error) {
+      console.error(error);
+    }
+  );
+
+  var newMaterial2 = new THREE.MeshStandardMaterial({
+      color: 0x97C0FC
+    });
+  const loader4 = new GLTFLoader().load(
+    "assets/free.glb", // comment this line out and un comment the line below to swithc models
+    //"./assets/gourd_web.glb", //<-- photogrammetery model
+    function(gltf) {
+      // Scan loaded model for mesh and apply defined material if mesh is present
+      gltf.scene.traverse(function(child) {
+        if (child.isMesh) {
+        //  child.material = newMaterial2;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+
+        }
+      });
+      // set position and scale
+      mesh4 = gltf.scene;
+      mesh4.position.set(100,20,300);
+      mesh4.rotation.set(0, 90, 90);
+      mesh4.scale.set(50,50, 50); // <-- change this to (1, 1, 1) for photogrammetery model
+      // Add model to scene
+      scene.add(mesh4);
+    },
+    undefined,
+    function(error) {
+      console.error(error);
+    }
+  );
+
 
   // Define Rendered and html document placement
   renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -316,4 +380,9 @@ function animate() {
   prevTime = time;
 
   renderer.render(scene, camera);
+  mesh.rotation.x += 0.01;
+  mesh.rotation.y += 0.01;
+  mesh2.rotation.x += 0.01;
+  mesh2.rotation.y += 0.01;
+
 }
