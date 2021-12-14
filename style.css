@@ -1,28 +1,33 @@
 h1{
-  font-family: 'Rubik Beastly', cursive;
-  font-size: 60px;
+font-family: 'Sedgwick Ave Display', cursive;
+  font-weight: 400;
   color:#D4E6F1;
   font-weight: lighter;
    text-shadow: 3px 3px black;
 
 }
 body{
-  background-color: #61856B ;
+  background-image: url("assets/graffiti_background.jpg");
+ background-color: #cccccc;
   text-align: center;
 
 }
 p{
-  font-family: 'Permanent Marker', cursive;
-  font-size: 30px;
+font-family: 'Sedgwick Ave Display', cursive;
+color:white;
+font-size: 30px;
+ text-shadow: 3px 3px black;
 }
 a{
-  font-family: 'Rubik Beastly', cursive;
+  font-family: 'Sedgwick Ave Display', cursive;
   font-size: 60px;
   color:#D4E6F1;
   font-weight: lighter;
    text-shadow: 3px 3px black;
 }
 h2{
-  font-family: 'Permanent Marker', cursive;
-  font-size: 30px;
+font-family: 'Sedgwick Ave Display', cursive;
+color: white;
+font-size: 30px;
+ text-shadow: 3px 3px black;
 }
